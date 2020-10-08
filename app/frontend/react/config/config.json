@@ -1,0 +1,14 @@
+{
+  "getUrls": {
+    "url": "/api/urls/",
+    "method": "GET"
+  },
+  "createUrl": {
+    "url": "/api/create",
+    "method": "POST"
+  },
+  "deleteUrl": {
+    "url": "/api/delete",
+    "method": "DELETE"
+  }
+}

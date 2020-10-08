@@ -1,0 +1,10 @@
+{
+  "port": 3000,
+  "publicDir": "/frontend/public",
+  "mysql": {
+    "host": "database",
+    "port": 3306,
+    "user": "root",
+    "password": "root-psw"
+  }
+}
