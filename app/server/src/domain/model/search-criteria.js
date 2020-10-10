@@ -9,7 +9,7 @@ class SearchCriteria {
     this.offset = Validator.isNumber(value) ? Number.parseInt(value) : 0;
   }
   set _limit(value) {
-    this.limit = Validator.isNumber(value) ? Number.parseInt(value) : 20;
+    this.limit = Validator.isNumber(value, 1, 100) ? Number.parseInt(value) : 20;
   }
 }
 module.exports = SearchCriteria;

@@ -5,18 +5,17 @@ import Pagination from "./pagination";
 import "./url-list.css";
 
 export default (props) => {
-  const { Request, updateProgress, query, setQuery, urls, setUrls } = useContext(AppContext);
+  const { Request, updateProgress, urls, setUrls } = useContext(AppContext);
+  const [offset, setOffset] = useState(0);
   const [buttons, setButtons] = useState(0);
-
-  const setOffset = (btnNumber) => setQuery({ offset: btnNumber * 20, limit: (btnNumber + 1) * 20 });
+  const limit = 20;
 
   const getUrls = async () => {
-    const { offset, limit } = query;
     try {
       updateProgress({ loading: true });
-      const response = await Request.fetch(`/api/urls?offset=${offset}&limit=${limit}`);
+      const response = await Request.fetch(`/api/urls?offset=${offset}`);
       setUrls(response.urls);
-      setButtons(response.total > 20 ? Math.round(response.total / 20) : 0);
+      setButtons(response.total > limit ? Math.round(response.total / limit) : 0);
       updateProgress({ loading: false, error: "" });
     } catch (error) {
       updateProgress({ loading: false, error: error.message });
@@ -25,7 +24,7 @@ export default (props) => {
 
   useEffect(() => {
     getUrls();
-  }, [query]);
+  }, [offset]);
 
   return (
     <div className="outer-container">
@@ -39,7 +38,7 @@ export default (props) => {
           </li>
           {urls[0] && urls.map((url, i) => <Url url={url} key={i} />)}
         </ul>
-        <Pagination buttons={buttons} setOffset={setOffset} pageNumber={query.offset / 20} />
+        <Pagination buttons={buttons} setOffset={setOffset} pageNumber={offset / limit} limit={limit} />
       </div>
     </div>
   );

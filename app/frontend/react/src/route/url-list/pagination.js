@@ -1,6 +1,6 @@
 import React from "react";
 
-export default ({ buttons, setOffset, pageNumber }) => {
+export default ({ buttons, setOffset, pageNumber, limit }) => {
   if (buttons < 1) return "";
 
   const buttonItems = [];
@@ -8,7 +8,7 @@ export default ({ buttons, setOffset, pageNumber }) => {
     buttonItems.push(
       <button
         key={i}
-        onClick={() => setOffset(i)}
+        onClick={() => setOffset(i * limit)}
         className={`pagination btn ${pageNumber === i ? "active" : ""}`}>
         {i + 1}
       </button>

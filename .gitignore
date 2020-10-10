@@ -31,6 +31,7 @@ node_modules/
 .yarn-integrity
 jspm_packages/
 package-lock.json
+bundle.js
 # TypeScript v1 declaration files
 typings/
 # Optional eslint cache
