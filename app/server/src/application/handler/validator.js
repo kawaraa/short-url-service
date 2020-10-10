@@ -11,5 +11,14 @@ class Validator {
     if (!Number.isNaN(N) && !max) return true;
     return !Number.isNaN(N) && N >= min && N <= max ? true : false;
   }
+  static isUrl(url) {
+    try {
+      const origin = new URL(url).origin;
+      const urlValidator = /^(?:http(s)?:\/\/)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+(\.\w[a-zA-Z]{1,5})$/;
+      return urlValidator.test(new URL(url).origin);
+    } catch (error) {
+      return false;
+    }
+  }
 }
 module.exports = Validator;

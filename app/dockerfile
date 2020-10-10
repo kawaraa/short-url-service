@@ -1,8 +1,8 @@
 FROM node:lts-alpine
 
-COPY . /admin
+COPY . /app
 
-WORKDIR /admin
+WORKDIR /app
 
 CMD npm install
 

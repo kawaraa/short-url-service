@@ -12,6 +12,7 @@ const getApiRouter = require("./server/src/index.js");
   try {
     const app = express();
     const server = http.createServer(app);
+    config.publicDir = process.cwd() + config.publicDir;
 
     // Providers
     const mySqlProvider = new MysqlDatabaseProvider(mysql, promisify, config.mysql);
@@ -23,8 +24,8 @@ const getApiRouter = require("./server/src/index.js");
     app.use(express.static(config.publicDir));
     app.use("/api", apiRouter);
 
+    app.get("/not-found", (request, response) => response.send(config.notFound));
     app.get("*", (request, response) => response.sendFile(config.publicDir + "/index.html"));
-
     app.use("*", (request, response) => response.status(404).end("Not Found page"));
 
     server.listen(config.port, "0.0.0.0", () => console.log("Running on: http://localhost:" + config.port));

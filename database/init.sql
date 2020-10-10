@@ -1,12 +1,11 @@
 
-CREATE DATABASE IF NOT EXISTS `urlService`;
-USE `urlService`;
+CREATE DATABASE IF NOT EXISTS `db`;
+USE `db`;
 
 CREATE TABLE `url` (
-  `id` VARCHAR(250) NOT NULL UNIQUE,
-  `original` TEXT NOT NULL,
-  `short` VARCHAR(250) NOT NULL,
-  `accessCount` INIT NOT NULL,
-  PRIMARY KEY(id)
+  `short` VARCHAR(50) NOT NULL UNIQUE,
+  `original` TEXT NOT NULL UNIQUE,
+  `accessCount` INT NOT NULL,
+  PRIMARY KEY(short)
 );
 

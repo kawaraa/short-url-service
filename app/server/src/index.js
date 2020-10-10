@@ -7,7 +7,7 @@ module.exports = (router, mySqlProvider, config) => {
   const urlRepository = new UrlRepository(mySqlProvider);
 
   // Resolvers
-  const urlResolver = new UrlResolver(router, firewall, urlRepository);
+  const urlResolver = new UrlResolver(router, urlRepository);
 
   urlResolver.resolve();
 

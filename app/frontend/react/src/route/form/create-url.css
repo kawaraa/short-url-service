@@ -1,0 +1,42 @@
+.create-url.form {
+  width: 75%;
+  margin: 20px auto 0 auto;
+  padding: 10px;
+  background: white;
+  border-radius: 10px;
+}
+
+.create-url.form > input[type="text"] {
+  display: block;
+  width: 100%;
+  font-size: 17px;
+  padding: 5px 10px;
+  border: 0.1px solid var(--nav-bg-color);
+  border-radius: 5px;
+}
+.create-url.form > button[type="submit"] {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px;
+  font-size: 18px;
+  background: var(--blue-color);
+  color: var(--white-color);
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.create-url.form > button[type="submit"]:hover {
+  background: var(--green-color);
+}
+.response.wrapper {
+  margin-top: 30px;
+}
+.response.value {
+  overflow: scroll;
+  margin-top: 20px;
+  padding: 15px 5px;
+  background: var(--white-color);
+}
